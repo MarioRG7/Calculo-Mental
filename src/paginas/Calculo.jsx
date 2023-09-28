@@ -2,9 +2,9 @@ import {useState,useEffect} from "react"
 
 export default function Calculo(){
     const [enunciado,setEnunciado]= useState();
-    const [respuesta, setRespuesta] = useState(0);
+    const [respuesta, setRespuesta] = useState("");
     const [resultado, setResultado] = useState(0)
-    const [acieto,setAcierto] = useState(0);
+    const [acierto,setAcierto] = useState(0);
 
     useEffect(()=>{
         newEnunciado()
@@ -29,6 +29,7 @@ export default function Calculo(){
         if(respuesta == resultado){
             setRespuesta("")
             newEnunciado()
+            setAcierto(acierto + 1)
         }else{
             alert("Resultado Erroneo")
             setRespuesta("")
@@ -39,6 +40,7 @@ export default function Calculo(){
     return (
         <>
             <div className="principal">
+                <h3>Llevas {acierto} aciertos</h3>
                 <div className="enunciado">
                     <h1>{enunciado}</h1>
                 </div>
